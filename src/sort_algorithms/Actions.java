@@ -1,5 +1,7 @@
 package sort_algorithms;
 
+import java.util.Random;
+
 public class Actions {
 
     public static boolean less(Comparable v, Comparable w) {
@@ -24,5 +26,16 @@ public class Actions {
         for (int i = h; i < a.length; i++)
             if (less(a[i], a[i-h])) return false;
         return true;
+    }
+
+    public static void shuffle(Comparable[] array) {
+        int size = array.length;
+        Random gen=new Random();
+
+        for (int i = 0; i < size; i++) {
+            int rndIndex=i+gen.nextInt(size-i);
+            exch(array,i,rndIndex);
+        }
+
     }
 }

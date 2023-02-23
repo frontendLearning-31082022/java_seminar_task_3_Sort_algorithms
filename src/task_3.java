@@ -1,4 +1,5 @@
 import sort_algorithms.*;
+import sort_algorithms.bad_vision.MergeBU_depricated;
 
 //Реализовать алгоритмы сортировки
 public class task_3 {
@@ -37,6 +38,16 @@ public class task_3 {
 
         array=getArray();
         Gnome.sort(array);
+
+        array= task_3.getArray();
+        Quick.sort(array);
+
+        array= task_3.getArray();
+        Merge.sort(array);
+
+        array= task_3.getArray();
+        MergeBU.sort(array);
+
 
     }
 

@@ -1,25 +1,27 @@
 package sort_algorithms;
+
 import static sort_algorithms.Actions.*;
+import static sort_algorithms.Merge.merge;
+
 public class MergeBU {
 
     public static void sort(Comparable[] array) {
-        int size = array.length;
+        int size=array.length;
+        Comparable[] aux = new Comparable[size];
 
-        Comparable[] aux=new Comparable[size];
-        for (int len = 1; len <size ; len*=2) {
-            for (int lo = 0; lo <size-len ; lo+=len+len) {
-                int mid=lo+len-1;
-                int hi=Math.min(lo+len+len-1,size-1);
-                Merge.merge(array,aux,lo,mid,hi);
+        for (int len = 1; len < size; len *= 2) {
+            for (int fr = 0; fr < size-len; fr += len+len) {
+                int mid  = fr+len-1;
+                int to = Math.min(fr+len+len-1, size-1);
+                merge(array, aux, fr, mid, to);
             }
-
         }
-        isSorted(array);
-
+        assert isSorted(array);
 
     }
 
     public static void main(String[] args) {
+//        Comparable[] array = {2, 5, 9, 1, 3, 8, 3, 6};
         Comparable[] array={"M","E","R","G","E","S","O","R","T","E","X","A","M","P","L","E"};
 
         MergeBU.sort(array);
